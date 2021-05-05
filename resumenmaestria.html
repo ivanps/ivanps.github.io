@@ -1,60 +1,61 @@
 <html>
 
 <head>
-<title>MaestrÌa</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>Maestr√≠a</title>
 </head>
 
 <body background=images/fondo_blanco.gif>
 
 <p>&nbsp;</p>
-<h1 align=center><span style="font-weight: 400"><font size=5 face="Arial"><i>Procesos EmpÌricos</i></font></span></h1>
+<h1 align=center><span style="font-weight: 400"><font size=5 face="Arial"><i>Procesos Emp√≠ricos</i></font></span></h1>
 
 <p>
 </p>
 
-<p>Las aplicaciones m·s populares de la TeorÌa de Procesos EmpÌricos son las 
-Pruebas de Bondad de Ajusto: el EstadÌstico de Kolmogorov-Smirnov y la Prueba Ji-cuadrada.</p>
+<p>Las aplicaciones m√°s populares de la Teor√≠a de Procesos Emp√≠ricos son las 
+Pruebas de Bondad de Ajusto: el Estad√≠stico de Kolmogorov-Smirnov y la Prueba Ji-cuadrada.</p>
 
-<p>Para comprender quÈ es un proceso empÌrico necesitamos recordar a la <i>FunciÛn 
-de DistribuciÛn EmpÌrica</i>:</p>
+<p>Para comprender qu√© es un proceso emp√≠rico necesitamos recordar a la <i>Funci√≥n 
+de Distribuci√≥n Emp√≠rica</i>:</p>
 <p align="center"><img border="0" src="images/FFn.GIF" width="208" height="59"></p>
 
-<p>es decir, Fn es el n˙mero promedio de observaciones hasta el valor t.</p>
+<p>es decir, Fn es el n√∫mero promedio de observaciones hasta el valor t.</p>
 
 
-<p>Para ilustrar el comportamiento de la funciÛn de distribuciÛn empÌrica Fn 
-construimos esta funciÛn con las calificaciones finales obtenidas en el curso de 
-Probabilidad y EstadÌstica en los semestres Agosto-Diciembre 2005 y Enero-Mayo 
-2007. En la gr·fica, la funciÛn empÌrica corresponde a la funciÛn escalonada 
-(color rojo). Note que esta funciÛn es continua por la derecha (punto rojo) y 
-con lÌmites por la izquierda. Adem·s, comparamos a la funciÛn empÌrica con la 
-funciÛn de distribuciÛn acumulativa F de la distribuciÛn Normal (lÌnea punteada 
-azul), donde la media y la desviaciÛn est·ndar fueron estimados con los datos 
-obtenidos. Para probar si la aproximaciÛn es significativa necesitamos aplicar 
-alguna prueba de bondad de ajuste, la cual discutiremos m·s abajo. Estas 
-gr·ficas se obtuvieron con la funciÛn ecdf() del paquete estadÌstico R.</p>
+<p>Para ilustrar el comportamiento de la funci√≥n de distribuci√≥n emp√≠rica Fn 
+construimos esta funci√≥n con las calificaciones finales obtenidas en el curso de 
+Probabilidad y Estad√≠stica en los semestres Agosto-Diciembre 2005 y Enero-Mayo 
+2007. En la gr√°fica, la funci√≥n emp√≠rica corresponde a la funci√≥n escalonada 
+(color rojo). Note que esta funci√≥n es continua por la derecha (punto rojo) y 
+con l√≠mites por la izquierda. Adem√°s, comparamos a la funci√≥n emp√≠rica con la 
+funci√≥n de distribuci√≥n acumulativa F de la distribuci√≥n Normal (l√≠nea punteada 
+azul), donde la media y la desviaci√≥n est√°ndar fueron estimados con los datos 
+obtenidos. Para probar si la aproximaci√≥n es significativa necesitamos aplicar 
+alguna prueba de bondad de ajuste, la cual discutiremos m√°s abajo. Estas 
+gr√°ficas se obtuvieron con la funci√≥n ecdf() del paquete estad√≠stico R.</p>
 
 <p align="center"><img border="0" src="images/PFn.gif"></p>
 
-<p>Cada semestre (muestra) obtendrÌamos una funciÛn similar, continua por la 
-derecha y con lÌmites por la izquierda. Estos proceso se estudian en la TeorÌa 
-de Procesos EmpÌricos como trayectorias (funciones) de este tipo y al espacio de 
-todas estas trayectorias se le denota con la letra may˙scula D. TambiÈn se les 
-conoce como trayectorias o funciones <i>cadlag,</i> del francÈs <i>continue ‡ 
-droite, limite ‡ gauche</i>.<i> </i>AsÌ, para estudiar estos procesos 
-necesitamos aplicar teorÌa de probabilidad en espacios de dimensiÛn infinita, 
-donde toda una trayectoria o funciÛn corresponde a un punto muestral en el 
+<p>Cada semestre (muestra) obtendr√≠amos una funci√≥n similar, continua por la 
+derecha y con l√≠mites por la izquierda. Estos proceso se estudian en la Teor√≠a 
+de Procesos Emp√≠ricos como trayectorias (funciones) de este tipo y al espacio de 
+todas estas trayectorias se le denota con la letra may√∫scula D. Tambi√©n se les 
+conoce como trayectorias o funciones <i>cadlag,</i> del franc√©s <i>continue √† 
+droite, limite √† gauche</i>.<i> </i>As√≠, para estudiar estos procesos 
+necesitamos aplicar teor√≠a de probabilidad en espacios de dimensi√≥n infinita, 
+donde toda una trayectoria o funci√≥n corresponde a un punto muestral en el 
 espacio de probabilidad correspondiente.</p>
-<p>Cuando el n˙mero de estudiantes se incrementa (tiende a infinito) estas 
-trayectorias empÌricas se aproximan a las de un Proceso Gaussiano. Para explicar 
-con mayor detalle a lo que nos referimos vamos a denotar al <i>Proceso EmpÌrico</i> 
+<p>Cuando el n√∫mero de estudiantes se incrementa (tiende a infinito) estas 
+trayectorias emp√≠ricas se aproximan a las de un Proceso Gaussiano. Para explicar 
+con mayor detalle a lo que nos referimos vamos a denotar al <i>Proceso Emp√≠rico</i> 
 de la siguiente forma,</p>
 <p align="center">
 <img border="0" src="images/Fprocemp.GIF" width="318" height="36"></p>
 
-<p>donde Fn es la distribuciÛn empÌrica y F es la distribuciÛn real 
-de los datos. La siguiente gr·fica muestra las trayectorias discutidas 
-anteriormente como trayectorias de un proceso empÌrico. Escribimos un rutina en 
+<p>donde Fn es la distribuci√≥n emp√≠rica y F es la distribuci√≥n real 
+de los datos. La siguiente gr√°fica muestra las trayectorias discutidas 
+anteriormente como trayectorias de un proceso emp√≠rico. Escribimos un rutina en 
 R para graficar las dos trayectorias. Observe que pertenecen al espacio de 
 funciones D.</p>
 

@@ -1,0 +1,997 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+           "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+
+<meta name="GENERATOR" content="TtH 3.81">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+ <style type="text/css"> div.p { margin-top: 7pt;}</style>
+ <style type="text/css"><!--
+ td div.comp { margin-top: -0.6ex; margin-bottom: -1ex;}
+ td div.comb { margin-top: -0.6ex; margin-bottom: -.6ex;}
+ td div.hrcomp { line-height: 0.9; margin-top: -0.8ex; margin-bottom: -1ex;}
+ td div.norm {line-height:normal;}
+ span.roman {font-family: serif; font-style: normal; font-weight: normal;} 
+ span.overacc2 {position: relative;  left: .8em; top: -1.2ex;}
+ span.overacc1 {position: relative;  left: .6em; top: -1.2ex;} --></style>
+
+<body background=images/fondo_blanco.gif> 
+
+<title> Ciclical time series with squeezed time</title>
+ 
+<h1 align="center">Ciclical time series with squeezed time </h1>
+
+<h3 align="center">Ivan Pacheco Soto<a href="#tthFtNtAAB" name="tthFrefAAB"><sup>1</sup></a> </h3>
+
+<h3 align="center">April 2005 </h3>
+
+<div class="p"><!----></div>
+
+<h2> Abstract</h2>
+<p align="justify">We discuss the estimation of the frequency in a strictly periodic
+time series that has been recorded as if fully observed at equally
+spaced times. This problem arises in the study of historical
+climate change based on the measurements of the thickness of
+laminae found in sedimentary rocks. We explore the effect of the
+missing time and the observations in a sinusoidal signal. Two
+types of random variations are introduced in the model. The first
+one is due to variations in the scale, where an unobserved gap
+could be regarded as the destruction of the record during a whole
+period of time. Hence it would seem that we have a complete record
+of the time series, but the time recorded would not correspond to
+the real scale of time. The second random variation is the
+observational error, which could be regarded as a measurement
+error or a common variation in the underlying process. A
+consistent estimator is obtained only when the first type of
+random variation is considered in the model. A modified version of
+this estimator is proposed when also the observational error is
+considered and its performance is assessed numerically. </p>
+
+<div class="p"><!----></div>
+<p align="justify">We first approach this problem by estimating the frequency using
+the classical Spectral Analysis method. We found a closed
+expression for the location of the peak of the spectral density,
+which would be an estimate of the modulated frequency.
+Unfortunately we would need more information on the distribution
+of the missing time to estimate consistently the frequency of the
+squeezed time series. Then we apply the non-linear Newton's
+method, which leads to our proposed method. We estimate the
+parameters of the sinusoidal curve by sliding a window through the
+whole series and locally computing the least squares estimates. We
+represent these estimates as points in the complex plane. The
+changes in their path produce an estimate of the mean distribution
+of the size of the time gaps. A complex ratio of these estimates
+turns out to be a linear fractional transformation. The geometry
+of these functions allows us to develop a method to estimate the
+frequency of the sinusoidal curve. </p>
+
+<div class="p"><!----></div>
+<p align="justify">In Chapter 5 we prove the consistency of the estimates for the
+frequency and the mean of the distribution of the time gaps by
+applying the Uniform Ergodic Theorem. These results hold for a
+sliding window of size two in the situation of no noise in the
+measurements. In Chapter 6 we present a simulation study of the
+estimation when some noise is added to the measurements. </p>
+
+<div class="p"><!----></div>
+ <h2><a name="tth_sEc1">
+1</a>&nbsp;&nbsp;Introductory Remarks</h2>
+
+<div class="p"><!----></div>
+<p align="justify">This dissertation discusses the estimation of the frequency in a
+strictly periodic time series that has been recorded as if fully
+observed at equally spaced times. In this situation, not only
+observations are missed but also time is lost, so we do not know
+whether there is a missing observation or how many observations
+are missed between two recorded measurements.
+
+</p>
+
+<div class="p"><!----></div>
+<p align="justify">This problem arises in the study of historical climate change
+based on measurements of the thickness of laminae found in
+sedimentary rocks. It is well known that the growth rings in trees
+record climate fluctuations. Wide growth rings correspond to good
+years, and thin growth rings correspond to poor years. Since the
+rings correspond to annual cycles, they can also be used as a
+dating method. Similarly to tree rings, sediments which accumulate
+in the bottom of lakes can be used to determine climate
+fluctuations. The organic communities responsible for these
+sediments are sensitive to climate fluctuations, which become
+recorded in very thin and parallel layers or laminae. Couplets of
+laminae that result from seasonal changes are called <i>varves</i>.
+Typically, varves consist of alternating dark and light colored
+layers. In northern lakes, the light layers may form during the
+summer because only large particles can settle to the bottom due
+to the wave action. During the winter, the lake freezes over so
+that even very fine particles (including much of the organic
+material) can settle to the bottom and form a darker layer. The
+varving is produced in response to climate fluctuations.
+Therefore, the thickness of these varves can be used to determine
+climatic conditions, and are taken as proxies of climate change.
+
+</p>
+
+<div class="p"><!----></div>
+
+<div class="p"><!----></div>
+<p align="justify">Like the growth rings of trees, varves record annual cycles.
+Unfortunately, there are many geological processes that affect the
+sequence of varve thickness in a sedimentation section. These
+sections might contain hiatuses, which might have been produced by
+erosion or non-deposition intervals of time. Thickness of the
+varves might have been affected by changes in sedimentation rates
+and degree of compaction. Furthermore, varves can also be
+generated by non-seasonal mechanisms such as storms, floods or by
+possible mixing of the sediments which homogenizes a certain
+thickness interval, so not all laminae are varves.
+
+</p>
+
+<div class="p"><!----></div>
+
+<div class="p"><!----></div>
+<p align="justify">Varves have been used in the study of patterns of prehistoric
+climate change. The Eocene <i>Green River Formation</i> in Utah,
+Colorado and Wyoming is one of the most studied lake deposits.
+Bradley(1929) described the varves in this formation, and from
+measurements of the varves, he estimated the Green River epoch to
+have lasted between 5 and 8 million years. These varves constitute
+an important source for the study of prehistoric climate change.
+Varves from Lake Gosiute in the formation are generally accepted
+to represent truly annual cycles. One of the objectives in the
+study of these ancient sequences has been the identification of
+cycles, which would imply a cyclical climate signal.
+
+</p>
+
+<div class="p"><!----></div>
+
+<div class="p"><!----></div>
+<p align="justify">Hiatuses in the sedimentation section can alter the calculated
+frequency of the cycles, so we would like to determine the effect
+of these gaps on the estimation of the frequency. The problem is
+that by looking at the sedimentation record the empty spaces seem
+fully occupied. There is no information of what took place between
+consecutive layers or varves. Figure 
+illustrates this situation. The plot to the left shows three
+varves that have been identified from a sedimentation section, and
+the one to the right shows the history of the deposition of this
+record. It would appear that this sediment has accumulated during
+three consecutive years, but there has been an erosion during the
+third year and lack of deposition during the fifth year. Therefore
+the measurements recorded at the <i>apparent</i> times 1, 2 and 3
+correspond to the <i>real</i> times 1, 4 and 6, respectively.
+
+</p>
+
+<div class="p"><!----></div>
+
+<div class="p"><!----></div>
+<a name="tth_fIg1">
+</a>  <a name="fig:varveseq">
+</a>
+<center><a href="varveseqf.ps">Figure</a>
+</center>
+
+<center>Figure 1: <font size="-1">Varve sequence.</font></center>
+
+<div class="p"><!----></div>
+ <h2><a name="tth_sEc2">
+2</a>&nbsp;&nbsp;Model</h2>
+
+<div class="p"><!----></div>
+<p align="justify">Suppose that a sinusoidal curve is observed at unobserved random
+times. An observation recorded at the <i>apparent</i> time t
+corresponds to the value of the sinusoidal curve at the <i>real</i>
+time t+S<sub>t</sub>, where S<sub>t</sub> represents the <i>lost</i> time up to
+this point. </p>
+
+<div class="p"><!----></div>
+
+<div class="p"><!----></div>
+<p align="justify">The sinusoidal curve could represent the thickness of the varves
+in a sedimentation section. Then the apparent time is the
+numbering of the observed varves, and the lost time is the varves
+missed by erosion, null sedimentation or measurement errors. </p>
+
+<div class="p"><!----></div>
+
+<div class="p"><!----></div>
+<p align="justify">Then the model is the following.
+<a name="eq:model">
+</a>
+<br clear="all" /></p>
+<table border="0" width="100%"><tr><td>
+<table align="center" cellspacing="0"  cellpadding="2"><tr><td nowrap="nowrap" align="center">
+ Y<sub>t</sub> = A<sub>0</sub>cos((t+S<sub>t</sub>)<font face="symbol">l</font
+><sub>0</sub> + <font face="symbol">F</font
+>) + <font face="symbol">s</font
+>Z<sub>t</sub> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; t = 1,2,...,</td></tr></table>
+</td><td width="1%">(1)</td></tr></table>
+
+
+where
+
+<ul>
+<li> A<sub>0</sub>  &gt; 0, 0  &lt;  <font face="symbol">l</font
+><sub>0</sub>  &lt;  <font face="symbol">p</font
+>, and <font face="symbol">s</font
+> &gt; 0 are unknown real
+numbers;
+<div class="p"><!----></div>
+</li>
+
+<li> <font face="symbol">F</font
+> has a uniform distribution on (<font face="symbol">-</font
+><font face="symbol">p</font
+>, <font face="symbol">p</font
+>];
+<div class="p"><!----></div>
+</li>
+
+<li> S<sub>t</sub> = N<sub>1</sub> + ... + N<sub>t</sub>, where N<sub>t</sub>  <font face="symbol">Î</font
+> { 0, 1, ...,m} (m known) are i.i.d. with mean <font face="symbol">m</font
+>, and P(N<sub>1</sub> = 0)  &gt;  0
+and P(N<sub>1</sub> = m)  &gt; 0;
+<div class="p"><!----></div>
+</li>
+
+<li> { S<sub>t</sub>} and {Z<sub>t</sub>} are independent sequences of random
+variables;
+<div class="p"><!----></div>
+</li>
+
+<li> Z<sub>t</sub>'s are i.i.d. with mean zero and <font face="symbol">|</font
+>Z<sub>t</sub><font face="symbol">|</font
+>  <font face="symbol">£</font
+> 1.
+<div class="p"><!----></div>
+</li>
+</ul>
+
+<div class="p"><!----></div>
+<p align="justify">The N<sub>t</sub>'s represent the lost time between consecutive observed
+points, i.e., they are the number of missing varves due to erosion
+or null sedimentation between two observed varves. When there is
+positive sedimentation and the record is destroyed by erosion, we
+assume that complete annual records are lost. Therefore N<sub>t</sub>
+would represent an interval of time of null sedimentation that
+might also include intervals of time where there was positive
+sedimentation that was completely destroyed by erosion. Then the
+record of a varve thickness would represent a full annual cycle. </p>
+
+<div class="p"><!----></div>
+
+<div class="p"><!----></div>
+<p align="justify">Z<sub>t</sub> represents the error measurements and random fluctuations in
+the sedimentation process. We will need these random effects to be
+uniformly bounded. The magnitude of these effects is controlled by
+<font face="symbol">s</font
+>.
+
+</p>
+
+<div class="p"><!----></div>
+
+<div class="p"><!----></div>
+<p align="justify">We want to estimate the unknown frequency <font face="symbol">l</font
+><sub>0</sub> and the mean
+amount of lost time <font face="symbol">m</font
+> from a realization of this process. </p>
+
+<div class="p"><!----></div>
+
+<div class="p"><!----></div>
+<p align="justify">The process Y<sub>t</sub> is stationary and the frequency is modulated by
+the lost time. In Chapter 3 we propose estimates
+for <font face="symbol">l</font
+><sub>0</sub> and <font face="symbol">m</font
+> when there is <i>no noise in the
+measurements</i>, i.e., <font face="symbol">s</font
+> =  0. Under this assumption, this
+results lead to a basic theory which is approximately valid if
+<font face="symbol">s</font
+> is <i>not too large</i>.
+
+</p>
+
+<div class="p"><!----></div>
+ <h2><a name="tth_sEc3">
+3</a>&nbsp;&nbsp;Literature Review</h2>
+
+<div class="p"><!----></div>
+     <h3><a name="tth_sEc3.1">
+3.1</a>&nbsp;&nbsp;Spectral Analysis</h3>
+
+<div class="p"><!----></div>
+<p align="justify">Spectral analysis is the main method that has been used in the
+study of cycles in varved sediments. With spectral analysis we can
+estimate the strength of various frequencies in the series, i.e.,
+the power spectrum. Two spectral methods have been usually applied
+in the analysis of varved sediments: Fourier spectral analysis and
+maximum entropy spectral analysis (MESA). </p>
+
+<div class="p"><!----></div>
+
+<div class="p"><!----></div>
+<p align="justify">In Fourier analysis the time series is decomposed into a weighted
+average of sinusoidal components. The spectrum is estimated by
+computing the periodogram, which can be computed by using the fast
+Fourier transform (FFT) of the time series. Under the main
+assumption that the time series is stationary, smoothing the
+periodogram gives a consistent estimate of the spectrum. A
+complete description of this method can be found in Brockwell and
+Davis (1991). </p>
+
+<div class="p"><!----></div>
+
+<div class="p"><!----></div>
+<p align="justify">MESA is based on choosing a spectral density [^g]
+corresponding to the most <i>random</i> time series subject to the
+constraint that the first m Fourier coefficients of [^g]
+must be exactly the first m sample autocovariances of the time
+series under study. Then we choose the spectral density [^g]
+which maximizes the <i>
+  entropy</i>
+
+<br clear="all" /></p>
+<table border="0" width="100%"><tr><td>
+<table align="center" cellspacing="0"  cellpadding="2"><tr><td nowrap="nowrap" align="center">
+</td><td align="left" class="cl"><font face="symbol">
+ó<br />õ
+</font></td><td nowrap="nowrap" align="center">
+<small><font face="symbol">p</font
+></small><!--sup
+--><br /><br />
+<small><font face="symbol">-</font
+><font face="symbol">p</font
+></small>&nbsp;<br /></td><td nowrap="nowrap" align="center">
+lng(<font face="symbol">l</font
+>) d<font face="symbol">l</font
+></td></tr></table>
+</td></tr></table>
+
+
+over the class of all densities g, subject to the constraints
+
+<br clear="all" /><table border="0" width="100%"><tr><td>
+<table align="center" cellspacing="0"  cellpadding="2"><tr><td nowrap="nowrap" align="center">
+</td><td align="left" class="cl"><font face="symbol">
+ó<br />õ
+</font></td><td nowrap="nowrap" align="center">
+<small><font face="symbol">p</font
+></small><!--sup
+--><br /><br />
+<small><font face="symbol">-</font
+><font face="symbol">p</font
+></small>&nbsp;<br /></td><td nowrap="nowrap" align="center">
+<font size="+1"><i><i>e</i></i></font><sup>ih<font face="symbol">l</font
+></sup> g(<font face="symbol">l</font
+>) d<font face="symbol">l</font
+> = </td><td nowrap="nowrap" align="center">
+<div class="comp">^<br /></div>
+<div class="norm"><font face="symbol">g</font
+><br /></div>
+<div class="comb">&nbsp;</div>
+</td><td nowrap="nowrap" align="center">
+(<font face="symbol">l</font
+>), &nbsp;&nbsp;&nbsp; h = 0,<font face="symbol">±</font
+>1,...,<font face="symbol">±</font
+>m,</td></tr></table>
+</td></tr></table>
+
+
+<p align="justify">where [^(<font face="symbol">g</font
+>)] is the sample autocovariance function of the
+time series. Although this method seems very different from the
+method of Fourier analysis, the maximum entropy spectral estimate
+is the same as the estimate obtained by fitting an autoregressive
+model (Brockwell at al. (1991)). MESA might detect more
+efficiently strict periodicities in the time series. This method
+has also been used because it allows to estimate a more dense
+power spectrum.
+
+</p>
+
+<div class="p"><!----></div>
+
+<div class="p"><!----></div>
+<p align="justify">The methods of spectral analysis described above assume the use of
+a stationary time series, but there might be changes in the length
+of cycles due to changes in the sedimentation rates or to hiatuses
+in the sequence, so the time series of the thickness of the varves
+might not be stationary. To deal with this situation, the spectrum
+is estimated locally by sliding a window through the whole series.
+Then the spectrum estimated from all these overlapping windows is
+stacked up in one plot with the successive spectrum aligned along
+one axis and the frequency aligned along the other one. These
+plots can also be contoured in color so that changes in power can
+be detected easier on the resulting plot. These diagrams can be
+used to detect non-stationarity of sections and changes in the
+sedimentation rates. </p>
+
+<div class="p"><!----></div>
+     <h3><a name="tth_sEc3.2">
+3.2</a>&nbsp;&nbsp;Estimation of Cycles</h3>
+
+<div class="p"><!----></div>
+<p align="justify">We review some of the references related to the statistical
+analysis on varved sediments from the Green River Formation. The
+authors looked for cycles in  sequences of varve thickness on the
+assumption that changes in thickness offer a proxy for climate
+fluctuations. </p>
+
+<div class="p"><!----></div>
+
+<div class="p"><!----></div>
+<p align="justify">Bradley(1929) gave a very detail geological description of the
+Green River Formation, but he only performed a visual analysis of
+the variation in thickness of the varves. After plotting a series
+of the thickness of the varves, Bradley concluded that the average
+distance between peaks in the series was a little more than 11
+years, that he interpreted as the sunspot cycle. Bradley found
+that certain beds or layers were regularly spaced. He computed the
+average distance between two particular beds, then divided it by
+the mean varve thickness for the particular location, and in this
+way he computed and identified two cycles: one related to the
+Precession of the Equinoxes (around 21000 years long), and another
+cycle of 50 years long that has not been related to any known
+phenomena. </p>
+
+<div class="p"><!----></div>
+
+<div class="p"><!----></div>
+<p align="justify">Crowley, Duchon and Rhi(1986) performed a more detail analysis on
+three time series of thickness of the varves. They used a variety
+of statistical techniques such as Fourier Analysis, MESA
+and tests for the spectrum. They also stacked up the successive
+spectrum obtained from sliding a window to detect periodic
+fluctuations in sections of the series. They concluded that the
+varve thicknesses are completely random, so they should not be
+taken as proxies of climate change. Ripepe, Roberts and
+Fisher(1991) suggested that the data they analyzed were not truly
+varved because the varved facies they studied were more likely to
+record non-seasonal phenomena such as dust storms.
+
+</p>
+
+<div class="p"><!----></div>
+
+<div class="p"><!----></div>
+<p align="justify">Crowley at al.(1986) visually split the series to obtain
+stationary subsets. After testing for three models for a possible
+trend, they concluded that the varve thickness follows a lognormal
+distribution after removal  of a linear trend and addition of a
+constant or multiplication by a power trend. Although they
+recognized the nonstationary character of the data, they performed
+a Fourier analysis and MESA for each complete series, and they
+found no evidence of a periodic fluctuation in varve thickness. In
+order to investigate periodic fluctuations in different parts of
+the time series, they performed a Fourier analysis and MESA of
+200-year segments overlapped by 40 years. They called these
+methods <i>moving</i> Fourier analysis and <i>moving</i> MESA. After
+stacking the spectra, they did not find significant peaks, and
+concluded that the series are mainly noise.
+
+</p>
+
+<div class="p"><!----></div>
+
+<div class="p"><!----></div>
+<p align="justify">The resolution of the system used to measure the thickness of the
+varves was 30 <font face="symbol">m</font
+>m in Crowley at al.(1986), so any lamination
+thinner than this value might have been included in adjacent varve
+measurements. To study this situation, they simulated time series
+according to an autoregressive model of order 1 and added Gaussian
+noise centered at the varve boundaries. They found that random
+errors in boundary interpretation add variance at high frequencies
+in the spectrum but have a minor effect on the low frequencies. So
+they concluded that interpretation of varve boundaries have a
+small effect on the structure of the time series.
+
+</p>
+
+<div class="p"><!----></div>
+
+<div class="p"><!----></div>
+<p align="justify">Ripepe at al.(1991) develop an image analysis method to identify,
+count and measure thickness of varves. They set an arbitrary lower
+limit for varve thickness at 30 <font face="symbol">m</font
+>m. In their analysis they
+first filtered out frequencies with periodicities of less than 4
+years and of more than 100 years. Then they computed FFT in
+sequential 200-year windows shifted in 25-year increments. For
+each window, the time series was detrended before spectral
+analysis was performed, and the spectrum was normalized to
+increase the effect of the low amplitude cyclicity. The spectra
+were stacked into a single spectrum. They identified three cycles
+that were interpreted as an El Ni&#241;o (ENSO)-type phenomenon
+(4.8-5.6 years), the sunspot cycle (10.4-14.7 years) and a 30-year
+cycle of unknown nature.
+
+</p>
+
+<div class="p"><!----></div>
+
+<div class="p"><!----></div>
+<p align="justify">In Schwarzacher(1993), Chapter 4, there is a summary of the
+techniques that have been applied in all these situations.
+
+</p>
+
+<div class="p"><!----></div>
+ <h2><a name="tth_sEc4">
+4</a>&nbsp;&nbsp;Synopsis</h2>
+
+<div class="p"><!----></div>
+<p align="justify">This work is divided in six chapters. The first one is the
+introduction and motivation of the problem. The second one
+contains the discussion of the spectral analysis. The next three
+chapters introduce our estimation method and prove the convergence
+of the estimators of the frequency and the mean size of the time
+jumps when there is no noise in the measurement. In the last
+chapter we present a simulation study for the case when some noise
+is added to the measurements. Now we describe in more detail the
+main parts of our work. </p>
+
+<div class="p"><!----></div>
+     <h3><a name="tth_sEc4.1">
+4.1</a>&nbsp;&nbsp;Spectral Analysis</h3>
+
+<div class="p"><!----></div>
+<p align="justify">In Chapter 2 we explore the use of the classical method of
+Spectral Analysis to estimate the true frequency <font face="symbol">l</font
+><sub>0</sub>.
+Grenander and Rosenblatt(1984) showed that the spectral density of
+a stationary time series that is observed at random times can be
+expressed in terms of the Poisson kernel from Complex Analysis. We
+apply this result to the sinusoidal model and obtained the
+spectral density of the modulated time series. The line spectrum
+of the sinusoidal curve is transformed into a continuous spectrum
+when some observations are dropped at random. </p>
+
+<div class="p"><!----></div>
+<p align="justify">For a small frequency <font face="symbol">l</font
+><sub>0</sub>, we prove that the spectral
+density is a unimodal function on (0,<font face="symbol">p</font
+>) and find an analytical
+expression for its location, which is greater than the true
+frequency. Hence there is a <i>blueing of the spectrum</i>, i.e.,
+there is a shift to higher frequencies. </p>
+
+<div class="p"><!----></div>
+<p align="justify">Unfortunately the analytical expression for the mode is not simple
+to work with, so we give an approximation to its value that
+clarifies how much blueing of the spectrum is taking place. The
+mode can be approximated by <font face="symbol">l</font
+><sub>0</sub> + arg<font face="symbol">f</font
+>(<font face="symbol">l</font
+><sub>0</sub>)
+where <font face="symbol">f</font
+> is the characteristic function of the time jumps. If
+the frequency of the squeezed time series were to be estimated
+with a periodogram, then we would obtain the modulated frequency,
+which would be quite close to <font face="symbol">l</font
+><sub>0</sub> + <font face="symbol">f</font
+>(<font face="symbol">l</font
+><sub>0</sub>). Hence
+we would not be able to estimate <font face="symbol">l</font
+><sub>0</sub> without further
+knowledge of the distribution of the time jumps. </p>
+
+<div class="p"><!----></div>
+     <h3><a name="tth_sEc4.2">
+4.2</a>&nbsp;&nbsp;Estimates of the Parameters</h3>
+
+<div class="p"><!----></div>
+<p align="justify">In Chapter 3 we start by applying the non-linear Newton's method
+to estimate the parameters in the squeezed time series. We slide a
+window of size three through the whole series and estimate locally
+the parameters, so we obtain a sequence of non-linear estimates
+([^A]<sub>t</sub>, [^(<font face="symbol">l</font
+><sub>t</sub>)], [^(<font face="symbol">h</font
+>)]<sub>t</sub>), t = 1,2,...
+Figure  shows that we can combine the plots of
+[^A]<sub>t</sub> vs. <font face="symbol">h</font
+><sub>t</sub> and <font face="symbol">l</font
+><sub>t</sub> vs. <font face="symbol">h</font
+><sub>t</sub> to obtain an
+estimate of the true frequency. Lemma 3.12 gives a
+result in this direction. This leads to our proposed method of
+estimation. Instead of using a non-linear method, we test for a
+frequency, a value between 0 and <font face="symbol">p</font
+>, and estimate locally the
+amplitude and the phase in the sinusoidal model by using the
+classical (linear) least squares estimates. </p>
+
+<div class="p"><!----></div>
+<p align="justify">We slide a window of size B through the whole series and obtain
+a sequence {[^(<font face="symbol">b</font
+>)]<sub>t</sub>}<sub>t=1</sub><sup>n<font face="symbol">-</font
+>B+1</sup> of LSE's for the
+amplitude and the phase. If the test frequency were equal to the
+true frequency and there were not missing observations in a block
+of data, then the LSE's would be the same. Hence we look for
+instances where consecutive LSE's are approximately the same. Then
+we define the following function:
+
+<br clear="all" /></p>
+<table border="0" width="100%"><tr><td>
+<table align="center" cellspacing="0"  cellpadding="2"><tr><td nowrap="nowrap" align="center">
+G<sub>n,<font face="symbol">e</font
+></sub>(<font face="symbol">l</font
+>) = </td><td align="right" class="cr">
+<div class="norm"><font size="-1">B </font><font face="symbol"><font size="+2">æ<br />Ö</font>
+&nbsp;</font></div>
+<div class="comb">&nbsp;</div>
+</td><td nowrap="nowrap" align="center">
+
+<div class="hrcomp"><hr noshade="noshade" size="1"/></div>
+<div class="norm"><table border="0" cellspacing="0" cellpadding="0"><tr><td nowrap="nowrap" align="center">
+1
+<div class="hrcomp"><hr noshade="noshade" size="1"/></div>n<br /></td><td nowrap="nowrap" align="center">
+</td><td nowrap="nowrap" align="center">
+<small>n<font face="symbol">-</font
+>B</small><!--sup
+--><br /><font size="+3"><font face="symbol">å<br />
+</font></font><small>t=1</small>&nbsp;<br /></td><td nowrap="nowrap" align="center">
+<b><b>1</b></b><sub>{ <font face="symbol">|</font
+>[^(<font face="symbol">b</font
+>)]<sub>t+1</sub>(<font face="symbol">l</font
+>) [^(<font face="symbol">b</font
+>)]<sub>t</sub><sup><font face="symbol">-</font
+>1</sup>(<font face="symbol">l</font
+>) <font face="symbol">-</font
+> 1<font face="symbol">|</font
+> &lt;  <font face="symbol">e</font
+>}</sub></td></tr></table></div>
+<div class="comb">&nbsp;</div>
+</td><td nowrap="nowrap" align="center">
+.</td></tr></table>
+</td></tr></table>
+
+
+<p align="justify">This function basically computes the proportion of consecutive
+LSE's that are approximately the same. We prove that the highest
+values of G<sub>n,<font face="symbol">e</font
+></sub> occur when the test frequency <font face="symbol">l</font
+>
+is a multiple of the true frequency <font face="symbol">l</font
+><sub>0</sub>. Hence we combine
+the different peaks to estimate the frequency, and the estimate is
+
+<br clear="all" /></p>
+<table border="0" width="100%"><tr><td>
+<table align="center" cellspacing="0"  cellpadding="2"><tr><td nowrap="nowrap" align="center">
+</td><td nowrap="nowrap" align="center">
+<div class="comp">^<br /></div>
+<div class="norm"><font face="symbol">l</font
+><br /></div>
+<div class="comb">&nbsp;</div>
+</td><td nowrap="nowrap" align="center">
+<small></small><!--sup
+--><br /><small>n</small>&nbsp;<br /></td><td nowrap="nowrap" align="center">
+ = </td><td nowrap="nowrap" align="center">
+<small></small><!--sup
+--><br /><span class="roman">argmax</span><br />
+<small><font face="symbol">l</font
+> <font face="symbol">Î</font
+> (0,[(<font face="symbol">p</font
+>)/(m+1)])</small>&nbsp;<br /></td><td nowrap="nowrap" align="center">
+</td><td nowrap="nowrap" align="center">
+<small>m+1</small><!--sup
+--><br /><font size="+3"><font face="symbol">å<br />
+</font></font><small>k=1</small>&nbsp;<br /></td><td nowrap="nowrap" align="center">
+G<sub>n,<font face="symbol">e</font
+><sub>n</sub></sub>(k<font face="symbol">l</font
+>),</td></tr></table>
+</td></tr></table>
+
+
+<p align="justify">where <font face="symbol">e</font
+><sub>n</sub> is a sequence decreasing to zero. </p>
+
+<div class="p"><!----></div>
+<p align="justify">Suppose that only one observation is dropped at some point. The
+only difference of the LSE's before and after the missing
+observation would be a change of phase. We compute the angle
+between consecutive LSE's to keep track of the change of phase at
+each location. Hence an estimate of <font face="symbol">m</font
+> the mean size of the
+time jumps is
+
+<br clear="all" /></p>
+<table border="0" width="100%"><tr><td>
+<table align="center" cellspacing="0"  cellpadding="2"><tr><td nowrap="nowrap" align="center">
+</td><td nowrap="nowrap" align="center">
+<div class="comp">^<br /></div>
+<div class="norm"><font face="symbol">m</font
+><br /></div>
+<div class="comb">&nbsp;</div>
+</td><td nowrap="nowrap" align="center">
+<small></small><!--sup
+--><br /><small>n</small>&nbsp;<br /></td><td nowrap="nowrap" align="center">
+ = </td><td nowrap="nowrap" align="center">
+1
+<div class="hrcomp"><hr noshade="noshade" size="1"/></div><table border="0" cellspacing="0" cellpadding="0"><tr><td nowrap="nowrap" align="center">
+n</td><td nowrap="nowrap" align="center">
+<div class="comp">^<br /></div>
+<div class="norm"><font face="symbol">l</font
+><br /></div>
+<div class="comb">&nbsp;</div>
+</td><td nowrap="nowrap" align="center">
+<small></small><!--sup
+--><br /><small>n</small>&nbsp;<br /></td></tr></table></td><td nowrap="nowrap" align="center">
+</td><td nowrap="nowrap" align="center">
+<small>n<font face="symbol">-</font
+>B</small><!--sup
+--><br /><font size="+3"><font face="symbol">å<br />
+</font></font><small>t=1</small>&nbsp;<br /></td><td nowrap="nowrap" align="center">
+arg(</td><td nowrap="nowrap" align="center">
+<div class="comp">^<br /></div>
+<div class="norm"><font face="symbol">b</font
+><br /></div>
+<div class="comb">&nbsp;</div>
+</td><td nowrap="nowrap" align="center">
+<small></small><!--sup
+--><br /><small>t+1</small>&nbsp;<br /></td><td nowrap="nowrap" align="center">
+(</td><td nowrap="nowrap" align="center">
+<div class="comp">^<br /></div>
+<div class="norm"><font face="symbol">l</font
+><br /></div>
+<div class="comb">&nbsp;</div>
+</td><td nowrap="nowrap" align="center">
+<small></small><!--sup
+--><br /><small>n</small>&nbsp;<br /></td><td nowrap="nowrap" align="center">
+)</td><td nowrap="nowrap" align="center">
+<div class="comp">^<br /></div>
+<div class="norm"><font face="symbol">b</font
+><br /></div>
+<div class="comb">&nbsp;</div>
+</td><td nowrap="nowrap" align="center">
+<small><font face="symbol">-</font
+>1</small><!--sup
+--><br /><small>t</small>&nbsp;<br /></td><td nowrap="nowrap" align="center">
+(</td><td nowrap="nowrap" align="center">
+<div class="comp">^<br /></div>
+<div class="norm"><font face="symbol">l</font
+><br /></div>
+<div class="comb">&nbsp;</div>
+</td><td nowrap="nowrap" align="center">
+<small></small><!--sup
+--><br /><small>n</small>&nbsp;<br /></td><td nowrap="nowrap" align="center">
+))</td></tr></table>
+</td></tr></table>
+
+
+
+<div class="p"><!----></div>
+     <h3><a name="tth_sEc4.3">
+4.3</a>&nbsp;&nbsp;Sliding Linear Fractional Transformations (SLFT)</h3>
+
+<div class="p"><!----></div>
+We observe that the ratio of the LSE's can be expressed as the
+image of a random walk in the unit circle S<sup>1</sup> under a SLFT f,
+i.e.,
+
+<br clear="all" /><table border="0" width="100%"><tr><td>
+<table align="center" cellspacing="0"  cellpadding="2"><tr><td nowrap="nowrap" align="center">
+</td><td nowrap="nowrap" align="center">
+<div class="comp">^<br /></div>
+<div class="norm"><font face="symbol">b</font
+><br /></div>
+<div class="comb">&nbsp;</div>
+</td><td nowrap="nowrap" align="center">
+<small></small><!--sup
+--><br /><small>t+1</small>&nbsp;<br /></td><td nowrap="nowrap" align="center">
+</td><td nowrap="nowrap" align="center">
+<div class="comp">^<br /></div>
+<div class="norm"><font face="symbol">b</font
+><br /></div>
+<div class="comb">&nbsp;</div>
+</td><td nowrap="nowrap" align="center">
+<small><font face="symbol">-</font
+>1</small><!--sup
+--><br /><small>t</small>&nbsp;<br /></td><td nowrap="nowrap" align="center">
+ = f<sub>s,<font face="symbol">l</font
+></sub>(<font size="+1"><i><i>e</i></i></font><sup><font face="symbol">x</font
+><sub>t</sub><font face="symbol">l</font
+><sub>0</sub></sup> U) &nbsp;&nbsp;&nbsp; <span class="roman">and</span> &nbsp;&nbsp;&nbsp;f<sub>s,<font face="symbol">l</font
+></sub>(z) = </td><td nowrap="nowrap" align="center">
+az+b
+<div class="hrcomp"><hr noshade="noshade" size="1"/></div>cz+d<br /></td><td nowrap="nowrap" align="center">
+,</td></tr></table>
+</td></tr></table>
+
+
+<p align="justify">where <font face="symbol">x</font
+><sub>t</sub> is a random walk on S<sup>1</sup>, U is a uniform random
+variable on S<sup>1</sup>, and the coefficients of f depends only on the
+frequencies <font face="symbol">l</font
+><sub>0</sub>, <font face="symbol">l</font
+>, and the time jumps contained
+in the sliding window. The main properties of the SLFT are given
+in Chapter 4. </p>
+
+<div class="p"><!----></div>
+<p align="justify">Since [^(<font face="symbol">b</font
+>)]<sub>t+1</sub>[^(<font face="symbol">b</font
+>)]<sub>t</sub><sup><font face="symbol">-</font
+>1</sup>  <font face="symbol">»</font
+> 1 when the test
+frequency is equal to the true frequency and there are no time
+jumps contained in the sliding window, a constant SLFT could
+identify the true frequency. If the sliding window has size B=2,
+Corollary  shows that f  <font face="symbol">º</font
+> 1 if and only if
+all the time jumps in the window have the same magnitude and the
+test frequency is a multiple of the true frequency. Hence if there
+were a constant SLFT, we would expect a higher peak in the
+function G<sub>n,<font face="symbol">e</font
+></sub>.
+
+</p>
+
+<div class="p"><!----></div>
+     <h3><a name="tth_sEc4.4">
+4.4</a>&nbsp;&nbsp;Consistency</h3>
+
+<div class="p"><!----></div>
+<p align="justify">First we define a Markov chain {J<sub>t</sub>}<sub>t=0</sub><sup><font face="symbol">¥</font
+></sup> with state
+space S to track the configuration of time jumps included in the
+sliding window of size B. Since the ratio of
+[^(<font face="symbol">b</font
+>)]<sub>t+1</sub>[^(<font face="symbol">b</font
+>)]<sub>t</sub><sup><font face="symbol">-</font
+>1</sup> involves a random walk on the
+unit circle S<sup>1</sup>, we apply the Random Ergodic Theorem to obtain
+pointwise convergence. Then we apply the Uniform Ergodic Theorem
+to prove that
+
+<br clear="all" /></p>
+<table border="0" width="100%"><tr><td>
+<table align="center" cellspacing="0"  cellpadding="2"><tr><td nowrap="nowrap" align="center">
+G<sub>n,<font face="symbol">e</font
+><sub>n</sub></sub>(<font face="symbol">l</font
+>) </td><td nowrap="nowrap" align="center">
+<small><span class="roman">a</span><span class="roman">.</span><span class="roman">s</span><span class="roman">.</span></small><!--sup
+--><br /><font face="symbol">®</font
+> <br />
+<small></small>&nbsp;<br /></td><td nowrap="nowrap" align="center">
+&nbsp;</td><td align="right" class="cr">
+<div class="norm"><font size="-1">B </font><font face="symbol"><font size="+2">æ<br />Ö</font>
+&nbsp;</font></div>
+<div class="comb">&nbsp;</div>
+</td><td nowrap="nowrap" align="center">
+
+<div class="hrcomp"><hr noshade="noshade" size="1"/></div>
+<div class="norm"><table border="0" cellspacing="0" cellpadding="0"><tr><td nowrap="nowrap" align="center">
+ </td><td nowrap="nowrap" align="center">
+<small></small><!--sup
+--><br /><font size="+3"><font face="symbol">å<br />
+</font></font><small>s  <font face="symbol">Î</font
+> S</small>&nbsp;<br /></td><td nowrap="nowrap" align="center">
+P(J<sub>0</sub> = s)<font face="symbol">n</font
+>(f<sub>s,<font face="symbol">l</font
+></sub><sup><font face="symbol">-</font
+>1</sup>({ 1 })) </td></tr></table></div>
+<div class="comb">&nbsp;</div>
+</td><td nowrap="nowrap" align="center">
+ &nbsp;&nbsp;&nbsp; <span class="roman">as</span>  n <font face="symbol">®</font
+> <font face="symbol">¥</font
+>,</td></tr></table>
+</td></tr></table>
+
+
+<p align="justify">where <font face="symbol">n</font
+> is the normalized circular Lebesgue measure. Note that
+if the SLFT f<sub>s,<font face="symbol">l</font
+></sub> is a non-constant function, then the
+Lebesgue measure of the preimage of {1} would be zero. Thus
+the problem resides in finding when the SLFT is a constant
+function equal to one. We solve this problem for B=2 and prove
+that
+
+<br clear="all" /></p>
+<table border="0" width="100%"><tr><td>
+<table align="center" cellspacing="0"  cellpadding="2"><tr><td nowrap="nowrap" align="center">
+G<sub>n,<font face="symbol">e</font
+><sub>n</sub></sub>(<font face="symbol">l</font
+>)&nbsp;</td><td nowrap="nowrap" align="center">
+<small><span class="roman">a</span><span class="roman">.</span><span class="roman">s</span><span class="roman">.</span></small><!--sup
+--><br /><font face="symbol">®</font
+> <br />
+<small></small>&nbsp;<br /></td><td nowrap="nowrap" align="center">
+&nbsp;</td><td align="left" class="cl"><font face="symbol">
+ì<br />ï<br />í<br />
+ï<br />î
+</font></td><td nowrap="nowrap" align="center">
+<table>
+<tr><td align="center"><table border="0" cellspacing="0" cellpadding="0"><tr><td nowrap="nowrap" align="center">
+p<sub>k</sub> </td></tr></table></td><td><table border="0" cellspacing="0" cellpadding="0"><tr><td nowrap="nowrap" align="center">
+ <span class="roman">if</span>  <font face="symbol">l</font
+> =  (k+1)<font face="symbol">l</font
+><sub>0</sub>  <span class="roman">for</span> <span class="roman">some</span>  k = 0,1,...,m, </td></tr></table></td></tr>
+<tr><td align="center"><table border="0" cellspacing="0" cellpadding="0"><tr><td nowrap="nowrap" align="center">
+0 </td></tr></table></td><td><table border="0" cellspacing="0" cellpadding="0"><tr><td nowrap="nowrap" align="center">
+ <span class="roman">otherwise</span>,</td></tr></table></td></tr></table>
+</td><td nowrap="nowrap" align="center">
+</td></tr></table>
+</td></tr></table>
+
+
+<p align="justify">Hence, we show in Theorem  that [^(<font face="symbol">l</font
+>)]<sub>n</sub> <font face="symbol">®</font
+> <sup><span class="roman">a.s.</span></sup>
+<font face="symbol">l</font
+><sub>0</sub> as n<font face="symbol">®</font
+> <font face="symbol">¥</font
+>.
+
+</p>
+
+<div class="p"><!----></div>
+<p align="justify">We also apply the Uniform Ergodic Theorem to prove in Proposition
+ that
+
+<br clear="all" /></p>
+<table border="0" width="100%"><tr><td>
+<table align="center" cellspacing="0"  cellpadding="2"><tr><td nowrap="nowrap" align="center">
+</td><td nowrap="nowrap" align="center">
+<div class="comp">^<br /></div>
+<div class="norm"><font face="symbol">m</font
+><br /></div>
+<div class="comb">&nbsp;</div>
+</td><td nowrap="nowrap" align="center">
+<small></small><!--sup
+--><br /><small>n</small>&nbsp;<br /></td><td nowrap="nowrap" align="center">
+&nbsp;</td><td nowrap="nowrap" align="center">
+<small><span class="roman">a</span><span class="roman">.</span><span class="roman">s</span><span class="roman">.</span></small><!--sup
+--><br /><font face="symbol">®</font
+> <br />
+<small></small>&nbsp;<br /></td><td nowrap="nowrap" align="center">
+&nbsp;</td><td nowrap="nowrap" align="center">
+1
+<div class="hrcomp"><hr noshade="noshade" size="1"/></div><font face="symbol">l</font
+><sub>0</sub><br /></td><td nowrap="nowrap" align="center">
+</td><td nowrap="nowrap" align="center">
+<small></small><!--sup
+--><br /><font size="+3"><font face="symbol">å<br />
+</font></font><small>s <font face="symbol">Î</font
+> S</small>&nbsp;<br /></td><td nowrap="nowrap" align="center">
+P(J<sub>0</sub> = s) argf<sub>s,<font face="symbol">l</font
+><sub>0</sub></sub>(0) &nbsp;&nbsp;&nbsp; <span class="roman">as</span> n <font face="symbol">®</font
+> <font face="symbol">¥</font
+>.</td></tr></table>
+</td></tr></table>
+
+
+<p align="justify">Here the problem resides in identifying the limit. Proposition
+ gives a result in this direction for a general
+sliding window, but it is based on a condition that is not clear
+or simple to verify. This condition is easily verified for a
+sliding window of width B=2. Theorem  proves
+that [^(<font face="symbol">m</font
+>)]<sub>n</sub> <font face="symbol">®</font
+> <sup><span class="roman">a.s.</span></sup><font face="symbol">m</font
+> as n <font face="symbol">®</font
+> <font face="symbol">¥</font
+>.
+
+</p>
+
+<div class="p"><!----></div>
+<hr /><h3>Footnotes:</h3>
+
+<div class="p"><!----></div>
+<a name="tthFtNtAAB"></a><a href="#tthFrefAAB"><sup>1</sup></a>Under the direction of 
+Dr. Simons from The University of North Carolina at Chapel Hill.
+<br /><br /><hr /><small>File translated from
+T<sub><font size="-1">E</font></sub>X
+by <a href="http://hutchinson.belmont.ma.us/tth/">
+T<sub><font size="-1">T</font></sub>H</a>,
+version 3.81.<br />On 04 Aug 2008, 12:23.</small>
+</body>
+</html>

@@ -1,3 +1,9 @@
+/* Format navigation text */
+.navigation {
+	font-size: 16px;
+	font-style: oblique;
+}
+
 /* Fixed Side Navigation */
 .ligas {
   height: 100%;
@@ -21,7 +27,7 @@
 /* When you mouse over the navigation links, change their color */
 .ligas a:hover {
   color: #4DC3FE;
-  font-size: 17px;
+  font-size: 16px;
 }
 
 .main {

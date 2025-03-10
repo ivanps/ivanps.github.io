@@ -70,3 +70,44 @@
 .text p{
 	padding: 10px;
 }
+
+/* Style to include an image wiht its description. Like Google sites. */
+.gscontainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  width: 100%;
+  background-color: aliceblue; /* Background color only affects the container */
+}
+.gsitem {
+  display: flex;
+  flex-basis: 100%;
+  align-items: left;
+  gap: 15px;
+}
+.gsitem img {
+  width: auto;
+  max-width: 150px; /* Ensure the image does not exceed this width */
+  height: auto;
+  border-radius: 5px;
+  object-fit: contain; /* Ensure the image maintains its aspect ratio */
+}
+.gstext {
+  flex-grow: 1;
+}
+@media (max-width: 600px) {
+  .gsitem {
+      flex-direction: column;
+      text-align: left;
+  }
+  .gsitem img {
+      width: 100%;
+      max-width: 150px;
+      height: auto; /* Ensure the image maintains its aspect ratio */
+  }
+}
+
+/* Ensure text outside the gscontainer has no background color or is white */
+body {
+  background-color: white;
+}

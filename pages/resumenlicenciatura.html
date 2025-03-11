@@ -1,0 +1,109 @@
+<html>
+
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EF8BMZ0F41"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-EF8BMZ0F41');
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>Tesis Licenciatura</title>
+</head>
+
+<body background=images/fondo_blanco.gif>
+
+<p>&nbsp;</p>
+<h1 align=center><span style="font-weight: 400"><font size=5 face="Arial"><i>Representación de LePage de una Variable Aleatoria Estable</i></font></span></h1>
+
+<p align="justify">
+La variable aleatoria más importante que estudiamos durante 
+nuestra carrera profesional es la <i>Normal</i>. Esta distribución modela 
+conjuntos de datos que tienen forma de campana como son los errores en las 
+mediciones de instrumentos, la calificación en exámenes, o fluctuaciones 
+aleatorias. Además es la distribución base en la construcción de intervalos de 
+confianza, pruebas de hipótesis, análisis de regresión, pronósticos, cartas de 
+control, series de tiempo y casi todos los métodos estadísticos que utilizamos 
+durante nuestros estudios profesionales.
+</p>
+
+<p align="justify">
+La importancia de la distribución normal en la Inferencia 
+Estadística reside en un famoso resultado conocido como el <i>Teorema del Límite 
+Central</i>, el cual establece que el promedio de variables aleatorias 
+independientes e idénticamente distribuidas (v.a.i.i.d) con media
+<font face="Times New Roman">mu y varianza  finita se aproxima en distribución 
+a una variable normal, i.e.,</font>
+</p>
+
+<p align="center">
+<img border="0" src="./../images/Fconvnorm.gif" width="352" height="61">
+</p>
+
+<p align="justify">
+Resulta que en general las únicas distribuciones de este tipo 
+son las distribuciones estables, i.e., los promedios estandarizados de v.a.i.i.d. 
+se aproximan en distribución a una variable aleatoria estable. De lo anterior, 
+queda claro que la Distribución Normal pertenece a la familia de las 
+distribuciones estables. Otras distribuciones estables conocidas (por nombre) 
+son la Distribución de Cauchy y la de Levy.</p>
+
+<p align="justify">En genera no se conoce la función de densidad de una v.a. 
+estable en forma cerrada. En su lugar se identifica a estas distribuciones a 
+través de su función característica (compleja).</p>
+
+<p align="center">
+<img border="0" src="./../images/Ffuncarac.GIF" width="450" height="78"></p>
+
+<p align="justify">
+donde se identifica a la distribución a través de cuatro 
+parámetros. El principal índice es alpha que identifica a la distribución, por 
+ejemplo, alpha = 2 corresponde a la distribución Normal, alpha = 1 corresponde a 
+la distribución de Cauchy y alpha = 0.5 corresponde a la distribución de Levy. 
+El índice beta corresponde al sesgo de la distribución. Gamma representa un 
+parámetro de escala, que no corresponde a la varianza o desviación estándar, ya 
+que para alpha&lt;2 ninguna distribución estable tiene varianza finita. Mu 
+corresponde a un parámetro de la posición de la distribución, aquí para alpha&gt;1 
+este parámetro representa la media de la distribución. La gráfica de abajo 
+muestra como se comporta una distribución estable para diferentes valores de 
+alpha. Esta gráfica se obtuvo con la función <i>dstable</i> disponible en el
+<a target="_blank" href="http://www.r-project.org/">paquete estadístico R</a>. Note que conforme 
+se decrementa alpha la distribución de acumula en el centro y se levanta 
+ligeramente en los extremos, es por esta razón que a estas distribuciones se les 
+conoce como <i>distribuciones de colas pesadas</i>.</p>
+
+<table align=center>
+	<tr>
+		<td><img border="0" src="./../images/dsimetrica.gif"></p></td>
+	</tr>
+	<tr>
+		<td><p align=center>Densidad estable con sesgo cero, escala unitaria y localizaci�n cero.</p></td>
+	</tr>
+</table>
+
+<p align="justify">
+La representación de LePage de una v.a. estable fue dada por 
+Raoul LePage, Michael Woodroofe y Joel Zinn en 1980. Ahora se le conoce a esta 
+representación como <i>Representación en Serie</i> de una v.a. estable, y es 
+útil para comprender el comportamiento complejo de estas distribuciones. Este 
+resultado se obtuvo al buscar una demostración <i>probabilística</i> del TLC, ya 
+que hasta entonces se conocía solamente la demostración de Análisis Complejo de 
+Paul Levy que utiliza a la función característica. </p>
+
+<p>La representación en serie de una variable estable simétrica con 
+parámetro de escala unitario es la siguiente:</p>
+
+<p align="center">
+<img border="0" src="./../images/Fserierep.GIF" width="205" height="58"></p>
+
+<p align="justify">donde las variables Wi's son i.i.d. con momento alpha finito, 
+las variable epsilon_i son independientes con distribución Rademacher, las 
+variables Gamma_i son los tiempos de retorno de un proceso de Poisson y 
+K(alpha,W1) es una constante.</p>
+
+</body>
+
+</html>

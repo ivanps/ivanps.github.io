@@ -1,0 +1,76 @@
+<html>
+
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EF8BMZ0F41"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-EF8BMZ0F41');
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>Maestría</title>
+</head>
+
+<body background=images/fondo_blanco.gif>
+
+<p>&nbsp;</p>
+<h1 align=center><span style="font-weight: 400"><font size=5 face="Arial"><i>Procesos Empíricos</i></font></span></h1>
+
+<p>
+</p>
+
+<p>Las aplicaciones más populares de la Teoría de Procesos Empíricos son las 
+Pruebas de Bondad de Ajusto: el Estadístico de Kolmogorov-Smirnov y la Prueba Ji-cuadrada.</p>
+
+<p>Para comprender qué es un proceso empírico necesitamos recordar a la <i>Función 
+de Distribución Empírica</i>:</p>
+<p align="center"><img border="0" src="./../images/FFn.GIF" width="208" height="59"></p>
+
+<p>es decir, Fn es el número promedio de observaciones hasta el valor t.</p>
+
+
+<p>Para ilustrar el comportamiento de la función de distribución empírica Fn 
+construimos esta función con las calificaciones finales obtenidas en el curso de 
+Probabilidad y Estadística en los semestres Agosto-Diciembre 2005 y Enero-Mayo 
+2007. En la gráfica, la función empírica corresponde a la función escalonada 
+(color rojo). Note que esta función es continua por la derecha (punto rojo) y 
+con límites por la izquierda. Además, comparamos a la función empírica con la 
+función de distribución acumulativa F de la distribución Normal (línea punteada 
+azul), donde la media y la desviación estándar fueron estimados con los datos 
+obtenidos. Para probar si la aproximación es significativa necesitamos aplicar 
+alguna prueba de bondad de ajuste, la cual discutiremos más abajo. Estas 
+gráficas se obtuvieron con la función ecdf() del paquete estadístico R.</p>
+
+<p align="center"><img border="0" src="./../images/PFn.gif"></p>
+
+<p>Cada semestre (muestra) obtendríamos una función similar, continua por la 
+derecha y con límites por la izquierda. Estos proceso se estudian en la Teoría 
+de Procesos Empíricos como trayectorias (funciones) de este tipo y al espacio de 
+todas estas trayectorias se le denota con la letra mayúscula D. También se les 
+conoce como trayectorias o funciones <i>cadlag,</i> del francés <i>continue à 
+droite, limite à gauche</i>.<i> </i>Así, para estudiar estos procesos 
+necesitamos aplicar teoría de probabilidad en espacios de dimensión infinita, 
+donde toda una trayectoria o función corresponde a un punto muestral en el 
+espacio de probabilidad correspondiente.</p>
+<p>Cuando el número de estudiantes se incrementa (tiende a infinito) estas 
+trayectorias empíricas se aproximan a las de un Proceso Gaussiano. Para explicar 
+con mayor detalle a lo que nos referimos vamos a denotar al <i>Proceso Empírico</i> 
+de la siguiente forma,</p>
+<p align="center">
+<img border="0" src="./../images/Fprocemp.GIF" width="318" height="36"></p>
+
+<p>donde Fn es la distribución empírica y F es la distribución real 
+de los datos. La siguiente gráfica muestra las trayectorias discutidas 
+anteriormente como trayectorias de un proceso empírico. Escribimos un rutina en 
+R para graficar las dos trayectorias. Observe que pertenecen al espacio de 
+funciones D.</p>
+
+
+<p align="center"><img border="0" src="./../images/Gprocemp.gif"></p>
+
+</body>
+
+</html>

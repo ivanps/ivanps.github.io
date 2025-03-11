@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>SPC Constants</title>
+<link rel="stylesheet" href="./../site_style.css">
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+</head>
+
+<body style="margin-left: 10px;">
+
+<p>&nbsp;</p>
+	
+<h1 align="center"><span style="font-weight: 700"><font size="5" face="Arial"><i>SPC Constants</i></font></span></h1>
+
+<p>Shewhart Control Charts, also known as process-behavior charts, are a statistical tool used to determine if a manufacturing or business pgrocess is in a state of control. They help in monitoring the stability of processes over time by distinguishing between common cause variation (inherent to the process) and special cause variation (due to external factors). The Central Limit Theorem (CLT) plays a crucial role in the formulation of Shewhart Control Charts, as it allows for the approximation of the distribution of sample means to a normal distribution, regardless of the shape of the population distribution, given a sufficiently large sample size.</p>
+<br>
+
+<p>The formula for the control limits in a Shewhart Control Chart is given by:</p>
+<div style="text-align: center;">
+	<p style="font-size: 1.5em;"> <span style="font-weight: bold;">UCL: </span> \( \bar{X} + 3\frac{\hat\sigma}{\sqrt{n}} \)</p>
+	<p style="font-size: 1.5em;"><span style="font-weight: bold;">CL:         </span>\( \bar{X} \)</p>
+	<p style="font-size: 1.5em;"><span style="font-weight: bold;">LCL: </span>\( \bar{X} - 3\frac{\hat\sigma}{\sqrt{n}} \)</p>
+</div>
+<p>where \( \bar{X} \) is the average of the sample means, \( \hat\sigma \) is the estimated standard deviation of the process, and \( n \) is the sample size in the group.</p>
+<br>
+
+<h2 align="center" style="background-color: lightblue;"><span style="font-weight: 700"><font size="5" face="Arial"><i>Constant c<sub>4</sub></i></font></span></h2>
+<br>
+
+<p>The c4 function returns the expected value of the standard deviation of \( n \) independent, normally distributed random variables with the same mean and with standard deviation of 1. This expected value is referred to as the control chart constant c<sub>4</sub>.</p>
+
+<br>
+<p style="font-size: 1.5em; text-align: center;">\( c_4 = \frac{\Gamma\left(\frac{n}{2}\right) \sqrt{2/(n-1)}}{\Gamma\left(\frac{n-1}{2}\right)} \)</p>
+<br>
+<p>where \( \Gamma(z) = \int_0^\infty t^{z-1} e^{-t} \, dt \) is the gamma function. As n grows, \( c_4 \) is asymptotically equal to \( (4n-4)/(4n-3) \).</p>
+<br>
+
+<h2 align="center" style="background-color: lightblue;"><span style="font-weight: 700"><font size="5" face="Arial"><i>Constant d<sub>2</sub></i></font></span></h2>
+<br>
+
+<p>The d<sub>2</sub> function returns the expected value of the sample range of \( n \) independent, normally distributed random variables with the same mean and a standard deviation of 1. This expected value is referred to as the control chart constant d<sub>2</sub>. The value d<sub>2</sub> can be expressed as:</p>
+<br>
+<p style="font-size: 1.5em; text-align: center;">\( d_2 = \int_{-\infty}^{\infty} \left[ 1 - \left( 1 - \Phi(x) \right)^n - \Phi(x)^n \right] \, dx \)</p>
+<br>
+<p>where \( \Phi(x) \) is the standard normal cumulative distribution function.</p>
+<br>
+
+<h2 align="center" style="background-color: lightblue;"><span style="font-weight: 700"><font size="5" face="Arial"><i>Constant d<sub>3</sub></i></font></span></h2>
+<br>
+
+<p>The d<sub>3</sub> function returns the standard deviation of the range of \( n \) independent, normally distributed random variables with the same mean and with unit standard deviation. The standard deviation returned is referred to as the control chart constant d<sub>3</sub>. The values returned by the d<sub>3</sub> function are accurate to ten decimal places.</p>
+
+<p>The value d<sub>3</sub> can be expressed as:</p>
+<br>
+<p style="font-size: 1.5em; text-align: center;">\( d_3 = \sqrt{2 \int_{-\infty}^{\infty} \int_{-\infty}^{y} f(x, y) \, dx \, dy - d_2^2} \)</p>
+<br>
+<p>where</p>
+<br>
+<p style="text-align: center;">\( f(x, y) = 1 - \left( \Phi(y) \right)^n - \left( 1 - \Phi(x) \right)^n + \left( \Phi(y) - \Phi(x) \right)^n \)</p>
+<br>
+<p>where \( \Phi(\cdot) \) is the standard normal cumulative distribution function and \( d_2 \) is the expected range.</p>
+</body>
+
+</html>

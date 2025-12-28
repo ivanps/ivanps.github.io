@@ -99,19 +99,25 @@
     gap: 20px;
     padding: 20px;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 20px auto 0;
 }
 
 .map-item {
     position: relative;
-    overflow: hidden;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     transition: transform 0.3s ease;
+    overflow: visible;
 }
 
 .map-item:hover {
     transform: scale(1.05);
+}
+
+.map-item a {
+    display: block;
+    overflow: hidden;
+    border-radius: 8px;
 }
 
 .map-item img {
@@ -120,8 +126,28 @@
     display: block;
 }
 
+.map-label {
+    text-align: center;
+    padding: 10px 5px;
+    font-size: 16px;
+    font-weight: normal;
+    color: #333;
+    font-family: Arial, sans-serif;
+}
+
+/* Tablet sizes (iPad) */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .map-gallery {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        max-width: 700px;
+    }
+}
+
+/* Mobile and small tablets */
 @media (max-width: 768px) {
     .map-gallery {
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
     }
 }

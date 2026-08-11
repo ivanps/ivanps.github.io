@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mis reconocimientos</title>
+  <link rel="stylesheet" href="../site_style.css">
+</head>
+
+<body class="reconoce-page">
+    
+  <h1>Mis reconocimientos</h1>
+  <p class="introduccion">Haz clic en un diploma para verlo más grande.</p>
+
+  <div class="cuadricula">
+
+    <div class="diploma">
+      <iframe src="../pdfs/Profe_Carismatico_2024.pdf#toolbar=0"></iframe>
+      <p>Profesor Carismático 2024</p>
+      <button onclick="mostrar('../pdfs/Profe_Carismatico_2024.pdf')">Ampliar</button>
+    </div>
+
+    <div class="diploma">
+      <iframe src="../pdfs/Profe_Carismatico_2025.pdf#toolbar=0"></iframe>
+      <p>Profesor Carismático 2025</p>
+      <button onclick="mostrar('../pdfs/Profe_Carismatico_2025.pdf')">Ampliar</button>
+    </div>
+
+    <div class="diploma">
+      <iframe src="../pdfs/Profe_Analitico_2026.pdf#toolbar=0"></iframe>
+      <p>Profesor Analítico 2026</p>
+      <button onclick="mostrar('../pdfs/Profe_Analitico_2026.pdf')">Ampliar</button>
+    </div>
+
+  </div>
+
+  <div id="visor">
+    <button id="cerrar" onclick="cerrar()">Cerrar</button>
+    <iframe id="pdfGrande"></iframe>
+  </div>
+
+  <script>
+    function mostrar(archivo) {
+      document.getElementById('pdfGrande').src = archivo;
+      document.getElementById('visor').style.display = 'block';
+    }
+
+    function cerrar() {
+      document.getElementById('visor').style.display = 'none';
+      document.getElementById('pdfGrande').src = '';
+    }
+  </script>
+</body>
+</html>

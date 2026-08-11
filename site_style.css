@@ -151,3 +151,87 @@
         gap: 15px;
     }
 }
+
+/**** Página de reconocimientos ******/
+.reconoce-page {
+  margin: 30px;
+  font-family: Arial, sans-serif;
+  background-color: whitesmoke;
+}
+
+.reconoce-page h1,
+.reconoce-page .introduccion {
+  text-align: center;
+}
+
+.reconoce-page .cuadricula {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 500px;
+  margin: 30px auto;
+}
+
+.reconoce-page .diploma {
+  padding: 10px;
+  text-align: center;
+  background-color: white;
+  border: 1px solid lightgray;
+  border-radius: 8px;
+}
+
+.reconoce-page .diploma:hover {
+  box-shadow: 0 3px 10px gray;
+}
+
+.reconoce-page .diploma iframe {
+  width: 100%;
+  height: 150px;
+  border: none;
+  pointer-events: none;
+}
+
+.reconoce-page .diploma button {
+  width: auto;
+  margin-top: 3px;
+  padding: 2px 5px;
+  color: #555;
+  background-color: #eee;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 9px;
+  cursor: pointer;
+}
+
+/* Ventana para mostrar el diploma grande */
+.reconoce-page #visor {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 30px;
+  background-color: rgba(0, 0, 0, 0.8);
+  box-sizing: border-box;
+}
+
+.reconoce-page #visor iframe {
+  width: 100%;
+  height: 90%;
+  background-color: white;
+  border: none;
+}
+
+.reconoce-page #cerrar {
+  float: right;
+  margin-bottom: 5px;
+  padding: 7px 15px;
+  cursor: pointer;
+}
+
+@media (max-width: 700px) {
+  .reconoce-page .cuadricula {
+    grid-template-columns: 1fr;
+  }
+}
